@@ -57,7 +57,6 @@
         </div>
     </div>
 
-
     <div id="poduzece-modal" class="popup-form">
     <?php
         if (isset($poruka_prijava)) {
@@ -72,7 +71,7 @@
         ?>
         <div class="form-container">
             <span class="close" onclick="closeDodajPoduzece()">&times;</span>
-            <h2>Dodaj poduzece</h2>
+            <h2>Dodaj knjigu</h2>
             <form id="poduzece-form" action="" method="post">
                 <label for="naziv">Naziv knjige</label>
                 <input type="text" id="naziv" name="naziv">
@@ -85,6 +84,22 @@
         </div>
     </div>
 
+    <div id="edit-knjiga-modal" class="popup-form">
+        <div class="form-container">
+                <span class="close" onclick="closeEditKnjiga()">&times;</span>
+                <h2>Uredi knjigu</h2>
+                <form id="edit-knjiga-form" action="" method="post">
+                <label for="naziv">Naziv knjige</label>
+                    <input type="text" id="naziv" name="naziv">
+                    <label for="opis">Opis knjige:</label>
+                    <input type="text" id="opis" name="opis">
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor">
+                    <button type="submit" class="login-button" name="login-button">Uredi</button>
+                </form>
+        </div>
+    </div>
+
         <div class="container">
             <table class="data-table">
                 <thead>
@@ -93,6 +108,8 @@
                         <th>Naziv knjige</th>
                         <th>Opis knjige</th>
                         <th>Autor</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,6 +122,8 @@
                             echo "<td>" . $row["Naziv_knjige"] . "</td>";
                             echo "<td>" . $row["Opis"] . "</td>";
                             echo "<td>" . $row["Autor"] . "</td>";
+                            echo "<td><button onclick='editKnjiga($knjiga_id)'>Uredi knjigu</button></td>";
+                                echo "<td><button onclick='obrisiKnjigu($knjiga_id)'>Obriši knjigu</button></td>";
                             echo "</tr>";
                         }
                     } else {

@@ -125,3 +125,61 @@ function closeEditKorisnik() {
     var natjecajModal = document.getElementById("edit-korisnik-modal");
     natjecajModal.style.display = "none";
 }
+
+function editKnjiga(knjiga_id) {
+    openeditKnjiga(knjiga_id);
+
+}
+
+function openeditKnjiga(knjiga_id) {
+    var knjigaModal = document.getElementById("edit-knjiga-modal");
+    knjigaModal.style.display = "block";
+
+    const knjigaForm = document.getElementById("edit-knjiga-form");
+    knjigaForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const values = e.target;
+        const naziv = values.elements['naziv'].value;
+        const opis = values.elements['opis'].value;
+        const autor = values.elements['autor'].value;
+        console.log(knjiga_id, "knjiga");
+        //Send data and trigger query
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "../edit_knjiga.php", true); // Create call_function.php to call the function
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Handle the response from call_function.php if needed
+                console.log(xhr.responseText);
+            }
+        };
+    
+        // Construct the data to send
+        const data = "knjiga_id=" + encodeURIComponent(knjiga_id) + "&naziv=" + encodeURIComponent(naziv) + "&opis=" + encodeURIComponent(opis) + "&autor=" + encodeURIComponent(autor);
+        xhr.send(data);
+
+        closeEditKnjiga();
+    });
+}
+
+function closeEditKnjiga() {
+    var knjigaModal = document.getElementById("edit-knjiga-modal");
+    knjigaModal.style.display = "none";
+}
+
+
+function obrisiKnjigu(knjiga_id) {
+        //Send data and trigger query
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "../brisanje_knjige.php", true); // Create call_function.php to call the function
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Handle the response from call_function.php if needed
+                console.log(xhr.responseText);
+            }
+        }
+        // Construct the data to send
+        const data = "knjiga_id=" + encodeURIComponent(knjiga_id);
+        xhr.send(data);
+}
