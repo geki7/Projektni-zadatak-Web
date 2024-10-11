@@ -1,15 +1,10 @@
-U zadatak sam implementirao još i registraciju. 
-Izabrao sam php jezik i MQSQL Workbench za kreiranje tablica. 
-Od osnovnih funkcionalnosti sam napravio skoro sve.
+I have also implemented registration in the task.
+I chose PHP as the programming language and MySQL Workbench for creating tables.
+I have completed almost all of the basic functionalities.
 
-Uloga administratora može napraviti sve.
+The administrator role can perform all actions.
 
-Ulogu autora sam djelomično ispunio.
+I have partially fulfilled the author role.
 
-Od dodatnih stvari: Administratori mogu imati knjige i ne mogu postojati bez autora, i mogu imati samo jednog autora. 
+Regarding additional features: Administrators can have books and cannot exist without authors, and they can have only one author.
 
-Od bonus stvari : Cijeli kod je dostupan na github-u, kada sam uplodao sve vidio sam da je trebalo napraviti barem jednu granu (moja greška) 
-
-		- Nisam znao korisitit swager  i formattera 
-
-		- DB je pripremjljen za export i import s popunjenim vec podacima.
